@@ -5,7 +5,7 @@ services:
     build:
       context: webapp
       dockerfile: Dockerfile
-    command: ng serve --host 0.0.0.0 --port 8080
+    command: ng serve --host 0.0.0.0 --port 8080 --disable-host-check
     volumes:
       - .:/app
     ports:

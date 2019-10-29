@@ -15,14 +15,14 @@ export class AppComponent {
   }
 
   async ngOnInit() {
-    await this.http.get('http://localhost/static_files/')
+    await this.http.get('static_files/')
     .subscribe(response => {
       this.stills = response
       let length = this.stills.length
       let random_selection = Math.floor(Math.random() * Math.floor(length))
       console.log(this.stills[random_selection].name)
       console.log(`guy: ${random_selection}`)
-      this.backgroundImage = `http://localhost/static_files/${encodeURIComponent(this.stills[random_selection].name)}`
+      this.backgroundImage = `static_files/${encodeURIComponent(this.stills[random_selection].name)}`
         
       }
     );
