@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  webapp:
+    build:
+      context: webapp
+      dockerfile: Dockerfile
+    command: ng serve --host 0.0.0.0 --port 8080
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    expose:
+      - 8080
+  nginx:
+    build:
+      context: nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+    expose:
+      - 80
+    depends_on:
+      - webapp
